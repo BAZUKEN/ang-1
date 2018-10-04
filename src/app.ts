@@ -5,16 +5,16 @@ function showHello(divName: string, name: string) {
     elt.innerText = `Hello from ${name}`;
 }
 
-function getAllBooks() {
+enum Category {'JavaScript', 'CSS', 'HTML', 'TypeScript', 'Angular'}
+
+function getAllBooks(): any[] {
     let books = [
         { title: 'Refactoring JavaScript', author: 'Evan Burchard', available: true},
         { title: 'JavaScript Testing', author: 'Liang Yuxian Eugene', available: false },
         { title: 'CSS Secrets', author: 'Lea Verou', available: true },
         { title: 'Mastering JavaScript Object-Oriented Programming', author: 'Andrea Chiarelli', available: true }
     ]
-    // books[0].category = 'test'
-    // books[0].category = 'test'
-    return books;   
+    return books; 
 }
 getAllBooks();
 
@@ -33,8 +33,39 @@ function logFirstAvailable(booksDiv:string, booksArr: any) {
 }
 logFirstAvailable('booksList', getAllBooks());
 
-enum Category {'JavaScript', 'CSS', 'HTML', 'TypeScript', 'Angular'}
 
+interface Book {
+    id: number,
+
+}
+
+
+// 04
+
+interface Librerian {
+    name: string, 
+    email:string,
+    department:string,
+    assistCustomer: (custName: string) => void;
+}
+
+class UniversityLibrarian implements Librerian {
+    name: string;
+    email:string;
+    department:string;
+
+    assistCustomer (custName: string) {
+        console.log(`${this.name} is assisting ${custName}`)
+    }
+}
+
+const favoriteLibrarian: Librerian = new  UniversityLibrarian();
+  
+
+
+// 05 
+
+// 06
 
 
 
